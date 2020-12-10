@@ -1,3 +1,3 @@
 [submodule "magnetite-guest"]
 	path = magnetite-guest
-	url = https://github.com/elmarsto/magnetite-guest
+	url = ../magnetite-guest/
