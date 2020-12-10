@@ -1,15 +1,22 @@
 import { Plugin } from 'obsidian';
-import magnetite from "./magnetite/Cargo.toml";
+import wasm from "./magnetite-guest/Cargo.toml";
+
+const guest = {};
 
 (async () => {
-	await magnetite();
+	Object.assign(guest,await wasm());
 })();
 
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
+const nonOverridablePropertyNames = [ '__proto__', 'prototype' ];
+// mostly, just avoiding undefined behaviour; I can't reason about what happens
+// to object inheritance (e.g. someone calling super(), or, god forbid, new <...>())
+// the golden rule in networked applications is if you can't reason about it,
+// forbid it, because whatever it is, it's probably a security risk
+
 export default Magnetite = (...args) => {
 	const plugin = new Plugin(...args);
 	const proxy = new Proxy(plugin, {
-		get: (target, propertyName) => magnetite[propertyName] || target[propertyName],
+		get: (target, propertyName) => nonOverridablePropertyNames.some(propertyName) ? target[propertyName] : guest[propertyName] || target[propertyName],
 	});
 	return proxy;
 };
