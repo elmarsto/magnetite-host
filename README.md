@@ -1,45 +1,19 @@
-## Obsidian Sample Plugin
+## Magnetite Host
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+This is a plugin for [Obsidian](https://obsidian.md). It works in conjunction with [Magnetite Guest](https://github.com/elmarsto/magnetite-guest).
 
-This project uses Typescript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in Typescript Definition format, which contains TSDoc comments describing what it does.
+## Installation
+The basic idea is that you can clone the host without modification into your plugins directory, like so:
 
-**Note:** The Obsidian API is still in early alpha and is subject to change at any time!
+```
+cd ~/vaults/<some-vault>/.obsidian/plugins/
+git clone https://github.com/elmarsto/magnetite-host/ <your plugin name>
+cd <your plugin name>
+# TODO; basically, have them symlink ./magnetite-guest to their plugin directory (or git submodule pointing at some github repo, or whatever)
+```
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
-- Changes the default font color to red using `styles.css`.
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open Sample Modal" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and output 'click' to the console.
-- Registers a global interval which logs 'setInterval' to the console.
+It's based heavily on the [Obsidian Sample Plugin](https://github.com/obsidianmd/obsidian-sample-plugin/)
 
+TODO: explain how to use
 
-### Releasing new releases
-
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments.
-- Publish the release.
-
-### Adding your plugin to the community plugin list
-
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
-
-### How to use
-
-- Clone this repo.
-- `npm i` or `yarn` to install dependencies
-- `npm run dev` to start compilation in watch mode.
-
-### Manually installing the plugin
-
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
-
-### API Documentation
-
-See https://github.com/obsidianmd/obsidian-api
+See [magnetite-lib](https://github.com/elmarsto/magnetite-lib) for API

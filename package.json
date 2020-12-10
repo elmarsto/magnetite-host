@@ -1,6 +1,6 @@
 {
   "name": "magnetite-host",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "This is the host for Magnetite, which in turn are bindings for Obsidian plugins written in Rust",
   "main": "main.js",
   "scripts": {
