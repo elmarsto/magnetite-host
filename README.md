@@ -1,9 +1,16 @@
 ## Magnetite Host
 
-This is a plugin for [Obsidian](https://obsidian.md). It works in conjunction with [Magnetite Guest](https://github.com/elmarsto/magnetite-guest).
+This is a plugin for [Obsidian](https://obsidian.md). It works in conjunction with [Magnetite Guest](https://github.com/elmarsto/magnetite-guest), which in turn works in conjunction with the [Magnetite Library](https://github.com/elmarsto/magnetite-lib/).
+
+Magnetite lets you do pure Rust plugins for Obsidian.
+
+This is the "JavaScript part." It works in conjunction with the Guest, which is the "Rust part". Think of this Host as the tape deck; the Guest is the cassette.
+
+Typically, unless you're releasing a new plugin, you won't need to change much (if anything!) in this repo,
+but you'll probably find yourself cloning it! ;D
 
 ## Installation
-The basic idea is that you can clone the host without modification into your plugins directory, like so:
+You can clone the host without modification into your plugins directory, like so:
 
 ```
 cd ~/vaults/<some-vault>/.obsidian/plugins/
@@ -13,7 +20,5 @@ cd <your plugin name>
 ```
 
 It's based heavily on the [Obsidian Sample Plugin](https://github.com/obsidianmd/obsidian-sample-plugin/)
-
-TODO: explain how to use
 
 See [magnetite-lib](https://github.com/elmarsto/magnetite-lib) for API
