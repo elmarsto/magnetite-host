@@ -13,7 +13,7 @@ const nonOverridablePropertyNames = [ '__proto__', 'prototype' ];
 // the golden rule in networked applications is if you can't reason about it,
 // forbid it, because whatever it is, it's probably a security risk
 
-export default Magnetite = (...args) => {
+export default (...args) => {
 	const plugin = new Plugin(...args);
 	const proxy = new Proxy(plugin, {
 		get: (target, propertyName) => nonOverridablePropertyNames.some(propertyName) ? target[propertyName] : guest[propertyName] || target[propertyName],
