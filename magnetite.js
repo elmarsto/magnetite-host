@@ -6,12 +6,8 @@ export default class Magnetite extends Plugin {
 		super(...args);
 		this.guest = wasm();
 	}
-	async onload(...args) {
+	async onload() {
 		const { onload } = await this.guest;
-		onload(...args);
-	}
-	async onunload(...args) {
-		const { onunload } = await this.guest;
-		onunload(...args);
+		onload(this);
 	}
 };
