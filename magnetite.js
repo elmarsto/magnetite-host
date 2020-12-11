@@ -8,6 +8,14 @@ export default class Magnetite extends Plugin {
 	}
 	async onload() {
 		const { onload } = await this.guest;
-		onload(this);
+		if (onload) {
+			onload(this);
+		}
+	}
+	async onunload() {
+		const { onunload } = await this.guest;
+		if (onunload) {
+			onunload(this);
+		}
 	}
 };
